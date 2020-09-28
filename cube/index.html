@@ -1,0 +1,30 @@
+<head>
+    <title>Shader Cube</title>
+    <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-raytrace-component/dist/aframe-raytrace-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-orbit-controls@1.3.0/dist/aframe-orbit-controls.min.js"></script> 
+    <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+  </head>
+  
+  <body>
+    
+    <script id="cube" type="x-shader/x-fragment">
+      
+      uniform float time;
+      uniform vec3 localCameraPos;
+      varying vec3 localSurfacePos;
+      
+      void main(){
+        vec3 localCameraDirection = normalize(localSurfacePos - localCameraPos);
+        gl_FragColor = vec4(localSurfacePos, 0.7);
+      }
+
+    </script>
+    
+    <a-scene>
+      <a-entity environment="preset:forest"></a-entity>
+      <a-entity camera orbit-controls="target: 0 10 0; initialPosition: 1 11 1; minPolarAngle: -180; maxPolarAngle:180; minDistance: 1; maxDistance: 10"></a-entity>      
+      <a-box position="0 10 0" raytrace="shader:#cube; transparent:true"></a-box>
+    </a-scene>
+    
+  </body>
