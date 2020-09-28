@@ -14,7 +14,7 @@ to accomodate for different attributes / uniforms such as `time` or `color`...
 - [cube](cube) — hello world template to get you started
 - [blob](blob) — taken directly from the examples of aframe-raytrace-component.
 - [rings](rings) — a variation of the blob shader feat. rotating donuts rather than blobs
-- [mandelbulb](mandelbubl) — the infamous Mandelbulb in a version crafted by Ingo Quiliez  
+- [mandelbulb](mandelbulb) — the infamous Mandelbulb in a version crafted by Ingo Quiliez  
   adapted to work with `raytrace.js`
 
 # License
