@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Rings</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-orbit-controls@1.3.0/dist/aframe-orbit-controls.min.js"></script>
+    <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
+    <script src="raytrace.js"></script>
+  </head>
+  <body>
+    <a-scene>
+
+      <a-assets>
+      
+        <a-asset-item id="rings" src="rings.frag"></a-asset-item>
+        <a-asset-item id="blob" src="blob.frag"></a-asset-item>
+
+        <script id="column" type="text/x-nunjucks-template">
+          <a-box id="shader-box" position="0 1.65 0" scale="0.5 0.5 0.5" raytrace="asset: #{{ shader or 'rings' }}; color: {{ color }}; time: {{ time }}; backside: true"></a-box>
+          <a-cylinder position="0 0.7 0" radius="0.03" height="1.38" color="#567" segments-height="1" segments-radial="8"></a-cylinder>
+          <a-cylinder position="0 1.38 0" radius="0.3" height="0.03" color="#567" segments-height="1" segments-radial="48"></a-cylinder>
+        </script>
+
+      </a-assets>
+
+      <a-entity environment="preset:contact"></a-entity>
+      <a-entity camera="fov: 50" orbit-controls="target: 0 1.65 0; initialPosition: 0 1.65 2; minPolarAngle: 0; maxPolarAngle: 105; minDistance: 0.5; maxDistance: 5"></a-entity>      
+      
+      <a-entity position="0 0 0" template="src:#column" data-shader="blob" data-color="#6f6" data-time="0"></a-entity>
+      <a-entity position="1 0 0" template="src:#column" data-color="#66f" data-time="1000"></a-entity>
+      <a-entity position="-1 0 0" template="src:#column" data-color="#f66" data-time="2000"></a-entity>
+
+    </a-scene>
+  </body>
+</html>
