@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Shader Blob</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-orbit-controls@1.3.0/dist/aframe-orbit-controls.min.js"></script> 
+    <script src="raytrace.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <a-asset-item id="blob" src="blob.frag"></a-asset-item>
+      </a-assets>
+      <a-entity environment="preset:contact"></a-entity>
+      <a-entity camera orbit-controls="target: 0 1.65 0; initialPosition: 0.5 1.65 0.5; minPolarAngle: 0; maxPolarAngle: 105; minDistance: 0.5; maxDistance: 5"></a-entity>      
+      <a-entity>
+          <a-box id="shader-box" shader="" position="0 1.65 0" scale="0.5 0.5 0.5" raytrace="asset: #blob;"></a-box>
+          <a-cylinder radius="0.03" height="2.73" color="#567" segments-height="1" segments-radial="8"></a-cylinder>
+          <a-cylinder position="0 1.38 0" radius="0.3" height="0.03" color="#567" segments-height="1" segments-radial="48"></a-cylinder>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
