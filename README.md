@@ -2,6 +2,8 @@
 
 Using fragment shaders to embed implicit geometries (defined by [signed distance functions](https://iquilezles.org/www/articles/distfunctions/distfunctions.htm)) seamlessly into a poly-mesh world...
 
+![screenshot-mandelbulb](https://user-images.githubusercontent.com/720669/94386437-f0408c80-0147-11eb-8643-51a823e14022.jpg)
+
 # raytrace.js
 
 This script extends upon the [aframe-raytrace-component](https://github.com/omgitsraven/aframe-raytrace-component) by Andrew Fraticelli.
@@ -19,7 +21,7 @@ to accomodate for different attributes / uniforms such as `time` or `color`...
 
 # License
 
-All code except for the Mandelbulb code are MIT licensed.
+All code except for the Mandelbulb code is MIT licensed.
 
 © 2017 Andrew Fraticelli  
 © 2020 @bitcraftlab
